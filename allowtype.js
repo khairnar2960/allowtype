@@ -6,7 +6,7 @@
         ? define(factory)
         : ((global =
             typeof globalThis !== "undefined" ? globalThis : global || self),
-        (global.allowType = factory));
+        (global.allowType = factory, global.allowType.version = '1.2.0'));
 })(this, function(selector, option = 'number', length = null, toCase = false) {
     /**
      * @function	allowType

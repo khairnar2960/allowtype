@@ -2,18 +2,24 @@
 # allowType
 
 A quick function to allow type into input
-- alpha
-- alphamuneric
-- slug
-- number
-- decimal
 
-options
+- selector (Event|Selector|Node)
+- options
+  * alpha - (alphabets only no space)
+  * alphaspace (alphabets with space)
+  * alphanum (alphanumeric without space)
+  * slug (alphanumeric slug)
+  * number (numbers only)
+  * mobile (10 digit indian mobile number)
+  * decimal (decimal number with decimals digit length)
+  * pincode (indian pin code)
+
 - length
-- case
-  * uppercase
-  * lowercase
-  * titlecase
+- toCase
+  * upper - Uppercase
+  * lower - Lowercase
+  * title - Titlecase
+  * word  - Wordcase
 
 ## Deployment
 
@@ -22,7 +28,11 @@ To use allowType include `allowtype.js` just above closing body tag into html
 ```html
   <script src="allowtype.js"></script>
 ```
+OR use CDN
 
+```html
+  <script src="https://cdn.jsdelivr.net/npm/allowtype@1.2.0/allowtype.min.js"></script>
+```
 
 ## Usage
 #### Allow alpha with length 10 characters
