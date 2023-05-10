@@ -2,24 +2,27 @@
 # allowType
 
 A quick function to allow type into input
+```javascript
+allowType(selector, option, length, toCase)
+```
 
-- selector (Event|Selector|Node)
-- options
-  * alpha - (alphabets only no space)
-  * alphaspace (alphabets with space)
-  * alphanum (alphanumeric without space)
-  * slug (alphanumeric slug)
-  * number (numbers only)
-  * mobile (10 digit indian mobile number)
-  * decimal (decimal number with decimals digit length)
-  * pincode (indian pin code)
+- selector `(Event|Selector|Node)`
+- option
+  * alpha - `(alphabets only no space)`
+  * alphaspace `(alphabets with space)`
+  * alphanum `(alphanumeric without space)`
+  * slug `(alphanumeric slug)`
+  * number `(numbers only)`
+  * mobile `(10 digit indian mobile number)`
+  * decimal `(decimal number with decimals digit length)`
+  * pincode `(indian pin code)`
 
-- length
+- length `(define return length)`
 - toCase
-  * upper - Uppercase
-  * lower - Lowercase
-  * title - Titlecase
-  * word  - Wordcase
+  * upper `(Uppercase)`
+  * lower `(Lowercase)`
+  * title `(Titlecase)`
+  * word  `(Wordcase)`
 
 ## Deployment
 
@@ -35,6 +38,7 @@ OR use CDN
 ```
 
 ## Usage
+### Inline Uses:
 #### Allow alpha with length 10 characters
 ```html
 <input type="text" oninput="allowType(event, 'alpha', 10)">
@@ -58,6 +62,17 @@ OR use CDN
 #### Allow alpha with no length limit and convert to uppercase
 ```html
 <input type="text" oninput="allowType(event, 'alpha', false, 'upper')">
+```
+
+### Using EventListener
+```html
+<input type="text" id="number-input">
+<script>
+  document.querySelector('#number-input')
+  .addEventListener('input', function(e) {
+    allowType(this, 'number');
+  })
+</script>
 ```
 ## Author
 
