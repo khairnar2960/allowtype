@@ -34,7 +34,7 @@ To use allowType include `allowtype.js` just above closing body tag into html
 OR use CDN
 
 ```html
-  <script src="https://cdn.jsdelivr.net/npm/allowtype@1.2.0/allowtype.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/allowtype@1.2.1/allowtype.min.js"></script>
 ```
 
 ## Usage

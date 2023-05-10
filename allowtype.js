@@ -6,13 +6,13 @@
 		define(factory) :
 		((global =
 				typeof globalThis !== "undefined" ? globalThis : global || self),
-			(global.allowType = factory, global.allowType.version = '1.2.0'));
+			(global.allowType = factory, global.allowType.version = '1.2.1'));
 })(this, function(selector, option = 'number', length = null, toCase = false) {
 	/**
 	 * @function	allowType
 	 * @auther		Harshal Khairnar
 	 * @url			https://harshalkhairnar.com
-	 * @version		1.2.0
+	 * @version		1.2.1
 	 * @var			event : (Event|Node)
 	 * @var			option : option
 	 * @var			length : length to return
