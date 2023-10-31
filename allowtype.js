@@ -49,7 +49,7 @@
 	if (!selector) {
 		throw new ReferenceError("Invalid selector");
 	}
-	if (selector instanceof Event) {
+	if (selector instanceof Event || 'undefined' !== typeof selector?.target) {
 		target = selector.target;
 	} else if ('object' === typeof selector && selector.nodeType) {
 		target = selector;
