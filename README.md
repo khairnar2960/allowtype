@@ -16,6 +16,7 @@ allowType(selector, option, length, toCase)
   * mobile `(10 digit indian mobile number)`
   * decimal `(decimal number with decimals digit length)`
   * pincode `(indian pin code)`
+  * pan `(indian pan card number)`
 
 - length `(define return length)`
 - toCase
@@ -79,6 +80,29 @@ OR use unpkg CDN
   })
 </script>
 ```
+
+### Using React
+
+```shell
+npm i allowtype
+```
+
+```jsx
+import allowtype from './allowtype.js';
+
+function NumberOnlyInput() {
+  function handleOnInput(event) {
+    allowtype(event, 'number');
+  }
+
+  return (<>
+    <input type="text" onInput={handleOnInput} />
+  </>);
+}
+
+export default NumberOnlyInput;
+```
+
 ## Author
 
 - [Harshal Khairnar](https://harshalkhairnar.com)

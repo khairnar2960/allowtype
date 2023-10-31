@@ -141,6 +141,31 @@
 				value = value.substr(1);
 			}
 			break;
+		case 'pan':
+			// RegEX to find PAN Card number
+			// ^[A-Z]{5}[0-9]{4}[A-Z]{1}$
+			// ABCDE1234Z
+			devnagariNums.forEach(number => {
+				value = value.replaceAll(number, devnagariNums.indexOf(number));
+			});
+			value = value.replace(/[^0-9A-Za-z]/gmi, '');
+			value = value.substr(0, 10);
+			for (let i = 0; i < 10; i++) {
+				let regex;
+				if ( i < value.length) {
+					if (i < 5 || i === 9) {
+						regex = new RegExp(/[A-Za-z]/);
+					} else if (i >= 5 && i < 9) {
+						regex = new RegExp(/[0-9]/);
+					}
+					if (!value.charAt(i).match(regex)) {
+						value = value.substr(0, i);
+					}
+				} else {
+					break;
+				}
+			}
+			break;
 	}
 	if (toCase) {
 		toCase = toCase.toLowerCase(); // case insensitive value like UPPER|Upper|upper
