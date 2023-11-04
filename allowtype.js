@@ -6,13 +6,13 @@
 		define(factory) :
 		((global =
 				typeof globalThis !== "undefined" ? globalThis : global || self),
-			(global.allowType = factory, global.allowType.version = '1.2.2'));
-})(this, function(selector, option = 'number', length = null, toCase = false) {
+			(global.allowType = factory, global.allowType.version = '1.2.3'));
+})(this, function(selector, option = 'number', length = null, toCase = false, setState = null) {
 	/**
 	 * @function	allowType
 	 * @auther		Harshal Khairnar
 	 * @url			https://harshalkhairnar.com
-	 * @version		1.2.2
+	 * @version		1.2.3
 	 * @var			event : (Event|Node)
 	 * @var			option : option
 	 * @var			length : length to return
@@ -179,5 +179,9 @@
 			value = value.toWordCase();
 		}
 	}
-	target.value = value;
+	if (setState) {
+		setState(value);
+	} else {
+		target.value = value;
+	}
 });
