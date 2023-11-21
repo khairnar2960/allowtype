@@ -10,7 +10,7 @@
 })(this, function(selector, option = 'number', length = null, toCase = false, setState = null) {
 	/**
 	 * @function	allowType
-	 * @auther		Harshal Khairnar
+	 * @author		Harshal Khairnar
 	 * @url			https://harshalkhairnar.com
 	 * @version		1.2.3
 	 * @var			event : (Event|Node)
@@ -165,6 +165,42 @@
 					break;
 				}
 			}
+			break;
+		case 'ifsc':
+			/**
+			 * It should be 11 characters long.
+			 * The first four characters should be upper case alphabets.
+			 * The fifth character should be 0.
+			 * The last six characters are usually numeric,
+			 * but can also be alphabetic.
+			 * 
+			 * RegEX to find IFSC (Indian Financial System) Code
+			 * ^[A-Z]{4}0[A-Z0-9]{6}$
+			 * ex. SBIN0125620
+			 */
+			devnagariNums.forEach(number => {
+				value = value.replaceAll(number, devnagariNums.indexOf(number));
+			});
+			value = value.replace(/[^0-9A-Za-z]/gmi, '');
+			value = value.substr(0, 11);
+			for (let i = 0; i < 11; i++) {
+				let regex;
+				if ( i < value.length) {
+					if (i < 4) {
+						regex = new RegExp(/[A-Za-z]/);
+					} else if (i === 4) {
+						regex = new RegExp(/[0]/);
+					} else if (i > 4 && i < 11) {
+						regex = new RegExp(/[A-Za-z0-9]/);
+					}
+					if (!value.charAt(i).match(regex)) {
+						value = value.substr(0, i);
+					}
+				} else {
+					break;
+				}
+			}
+			toCase = 'upper';
 			break;
 	}
 	if (toCase) {
