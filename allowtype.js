@@ -6,13 +6,13 @@
 		define(factory) :
 		((global =
 				typeof globalThis !== "undefined" ? globalThis : global || self),
-			(global.allowType = factory, global.allowType.version = '1.2.3'));
+			(global.allowType = factory, global.allowType.version = '1.2.5'));
 })(this, function(selector, option = 'number', length = null, toCase = false, setState = null) {
 	/**
 	 * @function	allowType
 	 * @author		Harshal Khairnar
 	 * @url			https://harshalkhairnar.com
-	 * @version		1.2.3
+	 * @version		1.2.5
 	 * @var			event : (Event|Node)
 	 * @var			option : option
 	 * @var			length : length to return
@@ -82,6 +82,13 @@
 				value = value.substr(0, length).replace(/[^0-9a-zA-Z]/gmi, '');
 			} else {
 				value = value.replace(/[^0-9a-zA-Z]/gmi, '');
+			}
+			break;
+		case 'alphanumspace':
+			if (length) {
+				value = value.substr(0, length).replace(/[^0-9a-zA-Z\s]/gmi, '');
+			} else {
+				value = value.replace(/[^0-9a-zA-Z\s]/gmi, '');
 			}
 			break;
 		case 'slug':
@@ -165,6 +172,7 @@
 					break;
 				}
 			}
+			toCase = 'upper';
 			break;
 		case 'ifsc':
 			/**
@@ -215,7 +223,7 @@
 			value = value.toWordCase();
 		}
 	}
-	if (setState) {
+	if ('function' === typeof setState) {
 		setState(value);
 	} else {
 		target.value = value;

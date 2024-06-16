@@ -1,8 +1,11 @@
 {
   "name": "allowtype",
-  "version": "1.2.4",
-  "description": "allow type specific thing in input box or textarea",
+  "version": "1.2.5",
+  "description": "Allow type specific thing in input box or textarea",
   "main": "allowtype.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "echo passed"
   },
@@ -10,7 +13,15 @@
     "type": "git",
     "url": "git+https://github.com/khairnar2960/allowtype.git"
   },
-  "keywords": ["javascript", "react", "allowtype", "ifsc", "pan", "pincode", "input"],
+  "keywords": [
+    "javascript",
+    "react",
+    "allowtype",
+    "ifsc",
+    "pan",
+    "pincode",
+    "input"
+  ],
   "author": "Harshal Khairnar",
   "license": "MIT",
   "bugs": {
