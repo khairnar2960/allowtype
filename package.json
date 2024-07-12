@@ -1,6 +1,6 @@
 {
   "name": "allowtype",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Allow type specific thing in input box or textarea",
   "main": "allowtype.js",
   "files": [

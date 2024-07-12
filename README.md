@@ -1,10 +1,17 @@
 # allowType
-![npm](https://img.shields.io/npm/v/allowtype) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/allowtype/1.2.5) ![GitHub release (by tag)](https://img.shields.io/github/downloads/khairnar2960/allowtype/stable/total) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/allowtype) ![npm](https://img.shields.io/npm/dy/allowtype) ![GitHub issues](https://img.shields.io/github/issues-raw/khairnar2960/allowtype) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/khairnar2960/allowtype)
+![npm](https://img.shields.io/npm/v/allowtype) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/allowtype/1.2.6) ![GitHub release (by tag)](https://img.shields.io/github/downloads/khairnar2960/allowtype/stable/total) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/allowtype) ![npm](https://img.shields.io/npm/dy/allowtype) ![GitHub issues](https://img.shields.io/github/issues-raw/khairnar2960/allowtype) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/khairnar2960/allowtype)
 
 A quick function to allow type into input
 ```javascript
-allowType(selector, option, length, toCase)
+allowType(selector, option, length, toCase, setState)
 ```
+
+#### New syntax
+Now arguments can be passed as config object
+```javascript
+allowType(selector, config)
+```
+- config `{ option, length, toCase, setState }`
 
 - selector `(Event|Selector|Node)`
 - option
@@ -26,6 +33,7 @@ allowType(selector, option, length, toCase)
   * lower `(Lowercase)`
   * title `(Titlecase)`
   * word  `(Wordcase)`
+- setState `(Update react state or use as callback)`
 
 ## Deployment
 
@@ -37,12 +45,12 @@ To use allowType include `allowtype.js` just above closing body tag into html
 OR use jsDeliver CDN
 
 ```html
-  <script src="https://cdn.jsdelivr.net/npm/allowtype@1.2.5/allowtype.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/allowtype@1.2.6/allowtype.min.js"></script>
 ```
 OR use unpkg CDN
 
 ```html
-  <script src="https://unpkg.com/allowtype@1.2.5/allowtype.js"></script>
+  <script src="https://unpkg.com/allowtype@1.2.6/allowtype.js"></script>
 ```
 
 ## Usage
@@ -126,7 +134,12 @@ function NumberOnlyInput() {
   const [ value, setValue ] = useState('');
 
   return (<>
-    <input type="text" value={value} onInput={(event) => allowtype(event, 'number', null, false, setValue)} />
+    <input type="text" value={value} onInput={
+      (event) => allowtype(event, { // New syntax, old is also available
+        option: 'number',
+        setState: setValue
+      })
+    } />
   </>);
 }
 
